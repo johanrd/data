@@ -2,7 +2,7 @@
   @module @ember-data/store
  */
 // this import location is deprecated but breaks in 4.8 and older
-import { deprecate } from '@ember/debug';
+import { deprecate, deprecateFunc } from '@ember/debug';
 import type EmberObject from '@ember/object';
 
 import { dependencySatisfies, importSync, macroCondition } from '@embroider/macros';
@@ -623,11 +623,15 @@ export class Store extends BaseClass {
     this._schema = schema;
   }
   /**
+   * DEPRECATED!
+   *
+   * Use the `createSchemaService` hook instead.
+   *
    * Allows an app to register a custom SchemaService
    * for use when information about a resource's schema needs
    * to be queried.
    *
-   * This method can only be called more than once, but only one schema
+   * This method can be called more than once, but only one schema
    * definition service may exist. Therefore if you wish to chain services
    * you must lookup the existing service and close over it with the new
    * service by accessing `store.schema` prior to registration.
@@ -671,6 +675,7 @@ export class Store extends BaseClass {
    *
    * @method registerSchema
    * @param {SchemaService} schema
+   * @deprecated
    * @public
    */
   registerSchema(schema: SchemaService) {

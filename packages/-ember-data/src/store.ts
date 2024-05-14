@@ -35,14 +35,17 @@ export default class Store extends BaseStore {
       this.requestManager.use([LegacyNetworkHandler, Fetch]);
     }
     this.requestManager.useCache(CacheHandler);
-    this.registerSchema(buildSchema(this));
   }
 
-  override createCache(storeWrapper: CacheCapabilitiesManager): Cache {
+  createSchemaService() {
+    return buildSchema(this);
+  }
+
+  createCache(storeWrapper: CacheCapabilitiesManager): Cache {
     return new JSONAPICache(storeWrapper);
   }
 
-  override instantiateRecord(
+  instantiateRecord(
     this: ModelStore,
     identifier: StableRecordIdentifier,
     createRecordArgs: Record<string, unknown>
@@ -50,13 +53,13 @@ export default class Store extends BaseStore {
     return instantiateRecord.call(this, identifier, createRecordArgs);
   }
 
-  override teardownRecord(record: Model): void {
+  teardownRecord(record: Model): void {
     teardownRecord.call(this, record);
   }
 
-  override modelFor<T>(type: TypeFromInstance<T>): ModelSchema<T>;
-  override modelFor(type: string): ModelSchema;
-  override modelFor(type: string): ModelSchema {
+  modelFor<T>(type: TypeFromInstance<T>): ModelSchema<T>;
+  modelFor(type: string): ModelSchema;
+  modelFor(type: string): ModelSchema {
     return (modelFor.call(this, type) as ModelSchema) || super.modelFor(type);
   }
 
@@ -66,7 +69,7 @@ export default class Store extends BaseStore {
   normalize = normalize;
   serializeRecord = serializeRecord;
 
-  override destroy() {
+  destroy() {
     cleanup.call(this);
     super.destroy();
   }
