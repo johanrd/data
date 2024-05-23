@@ -53,6 +53,9 @@
     "@ember-data/unpublished-test-infra": {
       "injected": true
     },
+    "@warp-drive/build-config": {
+      "injected": true
+    },
     "@warp-drive/core-types": {
       "injected": true
     },
@@ -91,6 +94,7 @@
     "@glimmer/tracking": "^1.1.2",
     "@html-next/vertical-collection": "^4.0.2",
     "@types/morgan": "^1.9.9",
+    "@warp-drive/build-config": "workspace:0.0.0-alpha.7",
     "@warp-drive/core-types": "workspace:0.0.0-alpha.56",
     "@warp-drive/internal-config": "workspace:5.4.0-alpha.70",
     "ember-auto-import": "^2.7.2",

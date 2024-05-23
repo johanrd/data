@@ -3488,6 +3488,9 @@ importers:
       '@types/morgan':
         specifier: ^1.9.9
         version: 1.9.9
+      '@warp-drive/build-config':
+        specifier: workspace:0.0.0-alpha.7
+        version: file:packages/build-config(@babel/core@7.24.5)(@glint/template@1.4.0)
       '@warp-drive/core-types':
         specifier: workspace:0.0.0-alpha.56
         version: file:packages/core-types(@babel/core@7.24.5)(@glint/template@1.4.0)
@@ -3606,6 +3609,8 @@ importers:
       '@ember-data/unpublished-test-infra':
         injected: true
       '@ember/string':
+        injected: true
+      '@warp-drive/build-config':
         injected: true
       '@warp-drive/core-types':
         injected: true
