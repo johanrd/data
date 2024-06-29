@@ -10,7 +10,7 @@ type NotificationManager = {
   notify(id: StableDocumentIdentifier, op: 'invalidated'): void;
   subcribe(
     id: StableDocumentIdentifier,
-    fn: (_id: StableDocumentIdentifier, op: 'invalidate' | 'added' | 'removed' | 'state') => void
+    fn: (_id: StableDocumentIdentifier, op: 'invalidated' | 'added' | 'removed' | 'state') => void
   ): void;
 };
 
